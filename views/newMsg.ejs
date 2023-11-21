@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Mini Message</title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <h1><%= title %></h1>
+    <div>
+      <form>
+        <label for="userName">User Name:</label>
+        <input type="text" id="userName" required />
+        <label for="messageBody">Message Content:</label>
+
+        <textarea id="messageBody" required></textarea>
+        <button>Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

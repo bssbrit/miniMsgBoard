@@ -6,7 +6,7 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-
+var msgRouter = require("./routes/newMsg");
 var app = express();
 app.listen(3000);
 // view engine setup
@@ -21,7 +21,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
+app.use("/new", msgRouter);
+/* app.get("/new", (req, res) => {
+  res.render("newMsg", { title: "New" });
+}); */
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
