@@ -9,11 +9,15 @@
     <div>
       <h1>Messages</h1>
       <% if(messages.length > 0) {%> <% messages.forEach(message => {%>
-      <p style="font-weight: 800">
-        <%= message.messageBody %> <span>- <%= message.userName %></span>
-      </p>
-      <p><%= message.createdAt %></p>
-      <% }); } %>
+      <a href="/message/<%= message._id %>">
+        <p style="font-weight: 800">
+          <%= message.messageBody %> <span>- <%= message.userName %></span>
+        </p>
+        <p><%= message.createdAt %></p>
+      </a>
+      <% }); } else { %>
+      <p>There are no blogs available</p>
+      <% } %>
     </div>
   </body>
 </html>

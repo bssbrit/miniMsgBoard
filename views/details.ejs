@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div>
+      <h1><%= title %></h1>
+      <h2>Usuário:<%= message.userName %></h2>
+      <h3>Mensagem: <%= message.messageBody %></h3>
+      <p>Created: <%= message.createdAt %></p>
+      <p><%= message._id %></p>
+    </div>
+    <form action="POST" action="/<%= message._id  %>/delete">
+      <button>delete</button>
+    </form>
+  </body>
+</html>

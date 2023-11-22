@@ -11,7 +11,6 @@ const uri =
 mongoose
   .connect(uri)
   .then((result) => {
-    console.log(typeof new Date());
     app.listen(3000);
     console.log("connect to db");
   })
