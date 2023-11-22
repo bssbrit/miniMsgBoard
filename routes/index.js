@@ -1,23 +1,19 @@
 var express = require("express");
 var router = express.Router();
-
+const Message = require("../models/message");
 //sample messages
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+4;
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { messages: messages });
+  //console.log(typeof new Date());
+  Message.find()
+    .then((result) => {
+      res.render("index", { messages: result });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 router.get("/about", function (req, res, next) {
   res.render("about");

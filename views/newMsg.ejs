@@ -8,12 +8,17 @@
     <%- include('./partials/nav.ejs') %>
     <h1><%= title %></h1>
     <div>
-      <form>
+      <form method="POST" action="/new">
         <label for="userName">User Name:</label>
-        <input type="text" id="userName" required />
+        <input type="text" id="userName" name="userName" required />
         <label for="messageBody">Message Content:</label>
 
-        <textarea id="messageBody" required></textarea>
+        <textarea
+          id="messageBody"
+          id="messageBody"
+          name="messageBody"
+          required
+        ></textarea>
         <button>Submit</button>
       </form>
     </div>

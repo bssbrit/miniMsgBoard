@@ -8,8 +8,11 @@
     <%- include('./partials/nav.ejs') %>
     <div>
       <h1>Messages</h1>
-      <% if(messages.length > 0) {%> <% messages.forEach((element) => {%>
-      <p><% element.text %></p>
+      <% if(messages.length > 0) {%> <% messages.forEach(message => {%>
+      <p style="font-weight: 800">
+        <%= message.messageBody %> <span>- <%= message.userName %></span>
+      </p>
+      <p><%= message.createdAt %></p>
       <% }); } %>
     </div>
   </body>
