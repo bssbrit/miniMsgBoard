@@ -34,13 +34,22 @@ router.post("/message/delete/:id", (req, res) => {
   console.log(req.params.id);
   Message.findByIdAndDelete(req.params.id)
     .then(() => res.redirect("/"))
-    .catch(() => {
+    .catch((error) => {
       console.log(error);
       res.redirect("/");
     });
-  /* 
-  Message.findByIdAndDelete(req.params.id)
-    .then(() => res.redirect("http://localhost:3000/"))
-    .catch((error) => console.log(error)) */
 });
+
+router.post("/message/update/:id", (req, res) => {
+  const data = req.body;
+  //messageBody: data.messageBody
+  console.log(req.params.id);
+  Message.findByIdAndUpdate(req.params.id, { messageBody: data.messageBody })
+    .then(() => res.redirect("/"))
+    .catch((error) => {
+      console.log(error);
+      res.redirect("/");
+    });
+});
+
 module.exports = router;

@@ -14,8 +14,24 @@
       <p>Created: <%= message.createdAt %></p>
       <p><%= message._id %></p>
     </div>
-    <form method="POST" action="/message/delete/<%= message._id  %>">
+    
       <button>delete</button>
     </form>
+    <button id="addFormButton">Update</button>
+    </form>
+    <script>
+      document
+        .getElementById("addFormButton")
+        .addEventListener("click", function () {
+          let formHTML = `
+          <form method="POST" action="/message/update/<%= message._id  %>">
+          <label for="messageBody">Updated Message</label>
+          <textarea id="messageBody" name="messageBody" required></textarea>
+          <button>confirm</button>
+          </form>
+        `;
+          this.insertAdjacentHTML("afterend", formHTML);
+        });
+    </script>
   </body>
 </html>
