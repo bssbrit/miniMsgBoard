@@ -30,19 +30,17 @@ router.get("/message/:id", (req, res) => {
       console.log(err);
     });
 });
-router.post("/message/:id/delete", (req, res) => {
-  console.log("hi");
-  //res.redirect("http://localhost:3000/");
-
-  Message.findById(req.params.id)
-    .then((result) => {
-      console.log(result);
-      Message.deleteOne(result);
-      res.redirect("http://localhost:3000/");
-    })
-    .catch((err) => {
-      console.log(err);
+router.post("/message/delete/:id", (req, res) => {
+  console.log(req.params.id);
+  Message.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect("/"))
+    .catch(() => {
+      console.log(error);
       res.redirect("/");
     });
+  /* 
+  Message.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect("http://localhost:3000/"))
+    .catch((error) => console.log(error)) */
 });
 module.exports = router;
