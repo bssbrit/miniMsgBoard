@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import Comment from "./components/Comment";
 import "./App.css";
 
 function App() {
@@ -18,10 +18,18 @@ function App() {
 
     fetchData();
   }, []);
-  return (
-    <>
-      <button onClick={() => console.log(data)}> Data Log</button>
-    </>
-  );
+  if (data != null) {
+    return (
+      <div>
+        <button onClick={() => console.log(data)}> Data Log</button>
+        <Comment data={data.comments} />
+      </div>
+    );
+  } else
+    return (
+      <div>
+        <button onClick={() => console.log(data)}> Data Log</button>
+      </div>
+    );
 }
 export default App;
