@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+.reply {
+  border: 1px solid black;
+  width: 90%;
+}
+body {
+  background-color: grey;
+}

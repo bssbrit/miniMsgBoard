@@ -1,11 +1,11 @@
-const Comment = ({ data }) => {
+const Comment = ({ data, commentType }) => {
   return (
     <div>
       <button onClick={() => console.log(data)}>comment data</button>
 
       {data.map((element) => (
         <div key={element.id}>
-          <div className="comment">
+          <div className={commentType}>
             <div>
               <button>like</button>
               <p>{element.score}</p>
@@ -23,11 +23,9 @@ const Comment = ({ data }) => {
               <p>{element.content}</p>
             </div>
           </div>
-          <button onClick={() => console.log(element.replies)}>
-            See replies
-          </button>
+
           {element.replies && element.replies.length > 0 ? (
-            <Comment data={element.replies} />
+            <Comment data={element.replies} commentType={"reply"} />
           ) : null}
         </div>
       ))}

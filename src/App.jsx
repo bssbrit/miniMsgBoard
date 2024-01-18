@@ -22,7 +22,7 @@ function App() {
     return (
       <div>
         <button onClick={() => console.log(data)}> Data Log</button>
-        <Comment data={data.comments} />
+        <Comment data={data.comments} commentType={"comment"} />
       </div>
     );
   } else
