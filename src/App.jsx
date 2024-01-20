@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Comment from "./components/Comment";
+import CommentCreator from "./components/CommentCreator";
 import "./App.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <div>
         <button onClick={() => console.log(data)}> Data Log</button>
         <Comment data={data.comments} commentType={"comment"} />
+        <CommentCreator />
       </div>
     );
   } else
